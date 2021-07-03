@@ -9,8 +9,12 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
-  useEffect(async () => {
-    getRecipes();
+  useEffect(() => {
+    const fetchData = async () => {
+      await getRecipes();
+    };
+
+    fetchData();
   }, [query]);
 
   const getRecipes = async () => {
